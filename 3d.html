@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3d</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.wrapper{
+			position: relative;
+			height: 500px;
+			width:500px;
+			border: 1px solid black;
+			perspective: 1000px;
+		}
+		.square{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-left: -100px;
+			margin-top: -100px;
+			width: 200px;
+			height: 200px;
+			transform-style: preserve-3d;
+			transform: translatez(-100px);
+			animation: rot 3s linear infinite;
+			animation-origin: center center;
+		}
+		@keyframes rot{
+			0%{transform: rotate3d(1,1,1,0deg) }
+			50%{transform: rotate3d(1,1,0,180deg)}
+			100%{transform: rotate3d(1,1,1,360deg)}
+		}
+		.square div{
+			position: absolute;
+			width: 200px;
+			height: 200px;
+			line-height: 200px;
+			text-align: center;
+			font-size: 50px;
+		}
+		.face1{
+			background: rgba(0, 0, 255, 0.5);
+			transform: translatez(100px);
+		}
+		.face2{
+			background: rgba(0, 255, 0, 0.5);
+			transform: rotatex(90deg) translatez(100px);
+		}
+		.face3{
+			background: rgba(255, 0, 0, 0.5);
+			transform: rotatey(-90deg) translatez(100px);
+		}
+		.face4{
+			background: rgba(100, 100, 100, 0.5);
+			transform: rotatex(-90deg) translatez(100px);
+		}
+		.face5{
+			background: rgba(180, 180, 0, 0.5);
+			transform: rotatey(90deg) translatez(100px);
+		}
+		.face6{
+			background: rgba(0, 180, 180, 0.5);
+			transform: rotatey(-180deg) translatez(100px);
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="square">
+			 <div class="face1">1</div>
+			 <div class="face2">2</div>
+			 <div class="face3">3</div>
+			 <div class="face4">4</div>
+			 <div class="face5">5</div>
+			 <div class="face6">6</div>
+		</div>
+	</div>
+</body>
+</html>

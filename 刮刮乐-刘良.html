@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    canvas{
+      border: 1px solid #000;
+      background: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1491137213845&di=2973e3ef0a93e629f0b6b24f0e5c4822&imgtype=0&src=http%3A%2F%2Fi2.sanwen8.cn%2Fdoc%2F1610%2F704-161024214100.jpg) no-repeat; 
+      background-size: 100% 100%;
+    }
+  </style>
+</head>
+<body>
+  <canvas height=500 width=500></canvas>
+  <script>
+    var can = document.getElementsByTagName('canvas')[0];
+    var ctx = can.getContext('2d');
+    ctx.fillStyle = "#666";
+    ctx.fillRect(0, 0 ,500, 500);
+    can.onmousedown = function () {
+      this.onmousemove = function (e) {
+        var event = e || window.event;
+        var cX = event.clientX - 20,
+            cY = event.clientY - 20;
+        ctx.clearRect(cX, cY, 40, 40);
+      }
+      this.onmouseup = function () {
+        this.onmousemove = null;
+        this.onmouseup = null;
+      }
+    }
+  </script>
+</body>
+</html>
