@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>gaosi</title>
+	<script src="gaussBlur.js"></script>
+	<style>
+		canvas {
+			border: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<img src="timg.jpg" alt="" style="display: none">
+	<canvas style="display: none"></canvas>
+	<script>
+		var canvas = document.getElementsByTagName('canvas')[0];
+		var img = document.getElementsByTagName('img')[0];
+		var ctx = canvas.getContext('2d');
+		var div = document.getElementsByTagName('div')[0];
+		var h = img.height;
+		var w = img.width;
+		canvas.width = w;
+		canvas.height = h;
+		
+		setTimeOut(function () {
+			img.onload = function () {
+				ctx.drawImage(img, 0, 0, w, h, 0, 0, w, h);
+				var dat = ctx.getImageData(0, 0, w, h);
+				gaussBlur(dat);
+				ctx.putImageData(dat, 0, 0); 
+				var newUrl = canvas.toDataURL();
+				var img2 = document.createElement('img');
+				img2.src = newUrl;
+				document.body.appendChild(img2);		
+			}
+		},0)
+	</script>
+</body>
+</html>
