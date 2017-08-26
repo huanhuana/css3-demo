@@ -1,5 +1,5 @@
 # css3+html5 demo
-1.高斯模糊和刮刮乐demo是采用的h5中的canvas标签实现的。<br>
+<b>1.高斯模糊和刮刮乐demo是采用的h5中的canvas标签实现的。</b><br>
     *高斯模糊是将照片data通过getImagedata()方法提取出来，通过一个高斯函数处理后在用putImageData()放回去，通过toDataURL转成base64格式赋到img的src上，在插入到页面，全都要在img的load触发时执行<br>
     *刮刮乐用fillRect()和clearReact()方法结合mouseup、mousemove、mousedown事件完成<br>
 2.轮播图和3ddemo是采用的css3的animition和transform实现的<br>
